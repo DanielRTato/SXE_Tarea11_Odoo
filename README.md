@@ -1,0 +1,48 @@
+## Extensiones instaladas:
+
+- Docker
+- .envFiles
+
+``docker-compose.yml``
+```yaml
+services:
+
+  odoo:
+    image: odoo:18
+    container_name: odoo
+    ports:
+      - "8069:8069"
+    depends_on:
+      - db
+    environment:
+      - HOST=db
+      - USER:odoo
+      - PASSWORD=odoo
+    volumes:
+      -odoo_data:/var/lib/odoo
+
+  db:
+    image: postgres:16
+    container_name: odoo_db
+    environment:
+      - POSTGRESUSER=odoo
+      - POSTGRESPASSWORD=odoo
+      - POSTGYRES_DB=postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=drodrigueztato@danielcastealo.org
+      - PGADMIN_DEFAULT_PASSWORD=Vboxuser1.
+    ports:
+      - "8081:80"
+
+volumes:
+  odoo_data:
+  db_data:
+```
