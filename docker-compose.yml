@@ -12,15 +12,15 @@ services:
       - USER:odoo
       - PASSWORD=odoo
     volumes:
-      -odoo_data:/var/lib/odoo
+      - odoo_data:/var/lib/odoo
 
   db:
     image: postgres:16
     container_name: odoo_db
     environment:
-      - POSTGRESUSER=odoo
-      - POSTGRESPASSWORD=odoo
-      - POSTGYRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
     volumes:
       - db_data:/var/lib/postgresql/data
 

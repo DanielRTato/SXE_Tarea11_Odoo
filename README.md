@@ -46,3 +46,7 @@ volumes:
   odoo_data:
   db_data:
 ```
+
+En PgAdmin:
+Al abrirlo nos logeeamos con el correo y la contraseña definidos en las variables de entorno.
+Creamos una nueva conexión a la base de datos con los siguientes datos:
