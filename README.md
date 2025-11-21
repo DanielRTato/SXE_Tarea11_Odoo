@@ -25,7 +25,7 @@ services:
       - db
     environment:
       - HOST=db
-      - USER:odoo
+      - USER=odoo
       - PASSWORD=odoo
     volumes:
       -odoo_data:/var/lib/odoo
